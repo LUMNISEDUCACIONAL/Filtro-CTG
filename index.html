@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cessão Temporária de Garantias</title>
+    <link rel="icon" type="image/svg+xml" href="imagens/BRANCO.png">
+    <meta name="theme-color" content="#00246E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { b44: '#00246E', b44red: '#FF3131' },
+            boxShadow: { glow: '0 0 24px rgba(255,49,49,.35)' },
+            keyframes: {
+              'fade-slide-in': { '0%': {opacity:0, transform:'translateY(8px)'}, '100%': {opacity:1, transform:'translateY(0)'} },
+              'fade-slide-out': { '0%': {opacity:1, transform:'translateY(0)'}, '100%': {opacity:0, transform:'translateY(-8px)'} },
+              'shimmer': { '0%': {backgroundPosition:'0% 50%'}, '100%': {backgroundPosition:'200% 50%'} }
+            },
+            animation: {
+              'fade-in': 'fade-slide-in 300ms ease both',
+              'fade-out': 'fade-slide-out 200ms ease both',
+              'shimmer': 'shimmer 2.8s linear infinite'
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="min-h-screen bg-[#0b1220]">
+    <div class="fixed inset-0 -z-10">
+      <div id="bgImage" class="absolute inset-0 bg-cover bg-center opacity-20 transition-[opacity,transform] duration-700"></div>
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-br from-b44/90 via-b44/80 to-b44/70 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(1000px_400px_at_10%_10%,rgba(255,49,49,.25),transparent_60%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(1000px_400px_at_90%_90%,rgba(0,36,110,.35),transparent_60%)]"></div>
+      </div>
+    </div>
+
+    <header class="max-w-6xl mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="./" class="flex items-center gap-3">
+        <img src="imagens/BRANCO.png" class="h-8 w-auto" alt="Base44">
+        <span class="font-extrabold tracking-wide text-white">Cessão Temporária de Garantias</span>
+      </a>
+    </header>
+
+    <main class="relative z-10 py-10 px-4 min-h-[80vh] flex items-start md:items-center">
+      <div class="w-full max-w-4xl mx-auto">
+        <div class="bg-white/95 rounded-3xl border border-white/20 shadow-2xl backdrop-blur-md overflow-hidden">
+          <div class="h-1 bg-gradient-to-r from-b44 via-b44red to-b44"></div>
+
+          <div class="px-6 md:px-8 pt-8 select-none">
+            <div class="text-center">
+              <h1 class="text-3xl md:text-4xl font-black text-white drop-shadow-sm mb-2" style="color: black;">Capital & Estratégia</h1>
+              <p class="text-base md:text-xl font-semibold text-white/90 max-w-3xl mx-auto " style="color: black;"">
+                Identifique se seu projeto se qualifica para nossa linha exclusiva de capital
+              </p>
+            </div>
+
+            <div class="mt-6 mb-4" ">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm font-semibold text-white/90 tracking-wide uppercase"style="color: black;">
+                  Etapa <span id="etapaAtual">1</span> de <span id="etapasTotal">7</span>
+                </span>
+                <span class="text-sm font-bold text-white"><span id="pct">0</span>%</span>
+              </div>
+              <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                <div id="barra" class="h-full w-0 bg-[linear-gradient(90deg,white,#FF3131,white)] bg-[length:200%_100%] animate-shimmer shadow-glow transition-[width] duration-500"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="content" class="px-6 md:px-8 pb-8"></div>
+
+          <div class="px-6 md:px-8 pb-8 flex justify-between gap-3">
+            <button id="btnBack" class="px-4 py-2 rounded-xl border-2 border-gray-200 bg-white font-bold hidden">Voltar</button>
+            <div class="flex-1"></div>
+            <button id="btnNext" class="px-5 py-2 rounded-xl bg-gradient-to-r from-b44 to-b44red text-white font-extrabold shadow-lg">Próximo</button>
+          </div>
+        </div>
+        <div id="errorBox" class="mt-4 hidden rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"></div>
+      </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-4 text-white/80 py-6">
+      © <span id="year"></span> Cessão Temporária de Garantias
+    </footer>
+
+    <canvas id="confetti" class="fixed inset-0 pointer-events-none -z-10"></canvas>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
