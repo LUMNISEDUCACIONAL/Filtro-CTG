@@ -1,95 +1,207 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cessão Temporária de Garantias</title>
-    <link rel="icon" type="image/svg+xml" href="imagens/BRANCO.png">
-    <meta name="theme-color" content="#00246E">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: { b44: '#00246E', b44red: '#FF3131' },
-            boxShadow: { glow: '0 0 24px rgba(255,49,49,.35)' },
-            keyframes: {
-              'fade-slide-in': { '0%': {opacity:0, transform:'translateY(8px)'}, '100%': {opacity:1, transform:'translateY(0)'} },
-              'fade-slide-out': { '0%': {opacity:1, transform:'translateY(0)'}, '100%': {opacity:0, transform:'translateY(-8px)'} },
-              'shimmer': { '0%': {backgroundPosition:'0% 50%'}, '100%': {backgroundPosition:'200% 50%'} }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Filtro de Qualificação – Parceiros CTG</title>
+  <link rel="icon" type="image/svg+xml" href="imagens/BRANCO.png">
+  <meta name="theme-color" content="#00246E">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { b44: '#00246E', b44red: '#FF3131' },
+          boxShadow: { glow: '0 0 24px rgba(255,49,49,.35)' },
+          keyframes: {
+            'fade-slide-in': {
+              '0%': { opacity: 0, transform: 'translateY(8px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
             },
-            animation: {
-              'fade-in': 'fade-slide-in 300ms ease both',
-              'fade-out': 'fade-slide-out 200ms ease both',
-              'shimmer': 'shimmer 2.8s linear infinite'
+            'shimmer': {
+              '0%': { backgroundPosition: '0% 50%' },
+              '100%': { backgroundPosition: '200% 50%' }
             }
+          },
+          animation: {
+            'fade-in': 'fade-slide-in 300ms ease both',
+            'shimmer': 'shimmer 2.8s linear infinite'
           }
         }
       }
-    </script>
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body class="min-h-screen bg-[#0b1220]">
-    <div class="fixed inset-0 -z-10">
-      <div id="bgImage" class="absolute inset-0 bg-cover bg-center opacity-20 transition-[opacity,transform] duration-700"></div>
-      <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-br from-b44/90 via-b44/80 to-b44/70 mix-blend-multiply"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(1000px_400px_at_10%_10%,rgba(255,49,49,.25),transparent_60%)]"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(1000px_400px_at_90%_90%,rgba(0,36,110,.35),transparent_60%)]"></div>
-      </div>
-    </div>
+    }
+  </script>
 
-    <header class="max-w-6xl mx-auto px-4 py-5 flex items-center justify-between">
-      <a href="./" class="flex items-center gap-3">
-        <img src="imagens/BRANCO.png" class="h-8 w-auto" alt="Base44">
-        <span class="font-extrabold tracking-wide text-white">Cessão Temporária de Garantias</span>
-      </a>
-    </header>
+  <link rel="stylesheet" href="css/app.css">
+</head>
 
-    <main class="relative z-10 py-10 px-4 min-h-[80vh] flex items-start md:items-center">
-      <div class="w-full max-w-4xl mx-auto">
-        <div class="bg-white/95 rounded-3xl border border-white/20 shadow-2xl backdrop-blur-md overflow-hidden">
-          <div class="h-1 bg-gradient-to-r from-b44 via-b44red to-b44"></div>
+<body class="min-h-screen bg-[#0b1220]">
 
-          <div class="px-6 md:px-8 pt-8 select-none">
-            <div class="text-center">
-              <h1 class="text-3xl md:text-4xl font-black text-white drop-shadow-sm mb-2" style="color: black;">Capital & Estratégia</h1>
-              <p class="text-base md:text-xl font-semibold text-white/90 max-w-3xl mx-auto " style="color: black;"">
-                Identifique se seu projeto se qualifica para nossa linha exclusiva de capital
-              </p>
+  <!-- HEADER -->
+  <header class="max-w-6xl mx-auto px-4 py-5 flex items-center gap-3">
+    <img src="imagens/BRANCO.png" class="h-8 w-auto" alt="CTG">
+    <span class="font-extrabold tracking-wide text-white">
+      Filtro de Qualificação – Parceiros CTG
+    </span>
+  </header>
+
+  <!-- MAIN -->
+  <main class="relative z-10 py-10 px-4 min-h-[80vh] flex items-center">
+    <div class="w-full max-w-4xl mx-auto">
+
+      <div class="bg-white/95 rounded-3xl shadow-2xl overflow-hidden">
+        <div class="h-1 bg-gradient-to-r from-b44 via-b44red to-b44"></div>
+
+        <!-- TITLE -->
+        <div class="px-6 md:px-8 pt-8 text-center">
+          <h1 class="text-3xl md:text-4xl font-black text-b44 mb-2">
+            Qualificação de Parceiros
+          </h1>
+          <p class="text-lg font-semibold text-gray-700">
+            Preencha seus dados e responda às perguntas abaixo
+          </p>
+
+          <!-- PROGRESS -->
+          <div class="mt-6 mb-4">
+            <div class="flex justify-between text-sm font-bold">
+              <span>Etapa <span id="etapaAtual">1</span> de <span id="etapasTotal">6</span></span>
+              <span><span id="pct">0</span>%</span>
             </div>
-
-            <div class="mt-6 mb-4" ">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-sm font-semibold text-white/90 tracking-wide uppercase"style="color: black;">
-                  Etapa <span id="etapaAtual">1</span> de <span id="etapasTotal">7</span>
-                </span>
-                <span class="text-sm font-bold text-white"><span id="pct">0</span>%</span>
-              </div>
-              <div class="h-2 bg-white/20 rounded-full overflow-hidden">
-                <div id="barra" class="h-full w-0 bg-[linear-gradient(90deg,white,#FF3131,white)] bg-[length:200%_100%] animate-shimmer shadow-glow transition-[width] duration-500"></div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div id="barra"
+                   class="h-full w-0 bg-[linear-gradient(90deg,#00246E,#FF3131,#00246E)]
+                          bg-[length:200%_100%] animate-shimmer transition-all duration-500">
               </div>
             </div>
-          </div>
-
-          <div id="content" class="px-6 md:px-8 pb-8"></div>
-
-          <div class="px-6 md:px-8 pb-8 flex justify-between gap-3">
-            <button id="btnBack" class="px-4 py-2 rounded-xl border-2 border-gray-200 bg-white font-bold hidden">Voltar</button>
-            <div class="flex-1"></div>
-            <button id="btnNext" class="px-5 py-2 rounded-xl bg-gradient-to-r from-b44 to-b44red text-white font-extrabold shadow-lg">Próximo</button>
           </div>
         </div>
-        <div id="errorBox" class="mt-4 hidden rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"></div>
+
+        <!-- CONTENT -->
+        <div id="content" class="px-6 md:px-8 pb-8 space-y-10">
+
+          <!-- ETAPA 1 -->
+          <section class="animate-fade-in">
+            <h2 class="text-xl font-black text-b44 mb-6">
+              Dados de Contato
+            </h2>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block font-bold mb-1">Nome completo</label>
+                <input type="text" placeholder="Digite seu nome"
+                       class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-b44">
+              </div>
+
+              <div>
+                <label class="block font-bold mb-1">Telefone / WhatsApp</label>
+                <input type="tel" placeholder="(DDD) 9XXXX-XXXX"
+                       class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-b44">
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOCO 1 -->
+          <section class="animate-fade-in">
+            <h2 class="text-xl font-black text-b44 mb-4">
+              Bloco 1 — Perfil profissional e foco de mercado
+            </h2>
+
+            <div class="mb-6">
+              <p class="font-bold mb-3">
+                1. Em qual segmento você atua principalmente?
+              </p>
+              <div class="space-y-2">
+                <label class="block"><input type="radio" name="q1"> FII, Asset, M&A Real Estate ou Family Office</label>
+                <label class="block"><input type="radio" name="q1"> Construtora, Incorporadora ou Loteadora</label>
+                <label class="block"><input type="radio" name="q1"> Banco de Investimento ou Crédito Estruturado</label>
+                <label class="block"><input type="radio" name="q1"> Imobiliária de Luxo, Advocacia ou Contabilidade</label>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold mb-3">
+                2. Qual função melhor descreve sua posição?
+              </p>
+              <div class="space-y-2">
+                <label class="block"><input type="radio" name="q2"> Sócio, Diretor ou Head de Real Estate</label>
+                <label class="block"><input type="radio" name="q2"> Gerente Corporate / Private Banking</label>
+                <label class="block"><input type="radio" name="q2"> Broker de grandes ativos</label>
+                <label class="block"><input type="radio" name="q2"> Outra função</label>
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOCO 2 -->
+          <section class="animate-fade-in">
+            <h2 class="text-xl font-black text-b44 mb-4">
+              Bloco 2 — Acesso a ativos e proprietários
+            </h2>
+
+            <div class="mb-6">
+              <p class="font-bold mb-3">
+                3. Seu acesso a ativos acima de R$ 100 milhões é:
+              </p>
+              <div class="space-y-2">
+                <label class="block"><input type="radio" name="q3"> Foco principal (portfólio > R$ 200MM)</label>
+                <label class="block"><input type="radio" name="q3"> Recorrente e direto</label>
+                <label class="block"><input type="radio" name="q3"> Ocasional</label>
+                <label class="block"><input type="radio" name="q3"> Fora do meu foco</label>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold mb-3">
+                4. Tipo de ativo mais comum em sua carteira:
+              </p>
+              <div class="space-y-2">
+                <label class="block"><input type="radio" name="q4"> Logístico / Industrial / Glebas</label>
+                <label class="block"><input type="radio" name="q4"> Comercial / Varejo</label>
+                <label class="block"><input type="radio" name="q4"> Rural</label>
+                <label class="block"><input type="radio" name="q4"> Residencial de alto padrão</label>
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOCO 3 -->
+          <section class="animate-fade-in">
+            <h2 class="text-xl font-black text-b44 mb-4">
+              Bloco 3 — Conhecimento técnico
+            </h2>
+
+            <p class="font-bold mb-3">
+              5. Experiência com operações estruturadas:
+            </p>
+            <div class="space-y-2">
+              <label class="block"><input type="radio" name="q5"> Ampla experiência prática</label>
+              <label class="block"><input type="radio" name="q5"> Experiência parcial</label>
+              <label class="block"><input type="radio" name="q5"> Conhecimento teórico</label>
+              <label class="block"><input type="radio" name="q5"> Sem familiaridade</label>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- NAV -->
+        <div class="px-6 md:px-8 pb-8 flex justify-between">
+          <button id="btnBack" class="px-4 py-2 rounded-xl border font-bold hidden">
+            Voltar
+          </button>
+          <button id="btnNext"
+                  class="px-6 py-2 rounded-xl bg-gradient-to-r from-b44 to-b44red text-white font-extrabold shadow-lg">
+            Próximo
+          </button>
+        </div>
+
       </div>
-    </main>
 
-    <footer class="max-w-6xl mx-auto px-4 text-white/80 py-6">
-      © <span id="year"></span> Cessão Temporária de Garantias
-    </footer>
+    </div>
+  </main>
 
-    <canvas id="confetti" class="fixed inset-0 pointer-events-none -z-10"></canvas>
+  <footer class="text-center text-white/70 py-6">
+    © <span id="year"></span> CTG
+  </footer>
 
-    <script src="js/app.js"></script>
-  </body>
+  <script src="js/app.js"></script>
+</body>
 </html>
